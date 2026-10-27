@@ -14,7 +14,7 @@ function foglalt(ido) {
 }
 
 function rendezes() {
-  foglalasok.sort(function (a, b) { return a.ido > b.ido; });
+  foglalasok.sort(function (a, b) { return a.ido.localeCompare(b.ido); });
 }
 
 function render() {
