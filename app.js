@@ -37,7 +37,7 @@ document.getElementById('f').addEventListener('submit', function (e) {
   e.preventDefault();
   var nev = document.getElementById('nev').value.trim();
   var ido = document.getElementById('ido').value;
-  if (foglalasok.length > MAX_NAPI) { uzen('Ma már nincs szabad hely.'); return; }
+  if (foglalasok.length >= MAX_NAPI) { uzen('Ma már nincs szabad hely.'); return; }
   if (foglalt(ido)) { uzen('Ez az időpont már foglalt.'); return; }
   foglalasok.push({ nev: nev, ido: ido });
   rendezes();
