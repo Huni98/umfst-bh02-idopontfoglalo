@@ -19,12 +19,13 @@ function rendezes() {
 
 function render() {
   var lista = document.getElementById('lista');
-  lista.innerHTML = '';
+  var htmlStr = ''; // Létrehozunk egy változót a kód gyűjtésére
   foglalasok.forEach(function (f, i) {
     var tisztaNev = f.nev.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    lista.innerHTML += '<div class="sor"><span>' + f.ido + ' – ' + tisztaNev + '</span>' +
+    htmlStr += '<div class="sor"><span>' + f.ido + ' – ' + tisztaNev + '</span>' +
       '<button type="button" class="torol" data-i="' + i + '">Törlés</button></div>';
   });
+  lista.innerHTML = htmlStr; // Egyszerre írjuk be a DOM-ba
   document.querySelectorAll('.torol').forEach(function (el) {
     el.addEventListener('click', function () {
       foglalasok.splice(Number(el.dataset.i), 1);
