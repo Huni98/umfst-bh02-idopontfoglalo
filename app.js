@@ -10,7 +10,7 @@ function uzen(szoveg) {
 }
 
 function foglalt(ido) {
-  return foglalasok.indexOf(ido) !== -1;
+  return foglalasok.some(function(f) { return f.ido === ido; });
 }
 
 function rendezes() {
