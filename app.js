@@ -21,7 +21,8 @@ function render() {
   var lista = document.getElementById('lista');
   lista.innerHTML = '';
   foglalasok.forEach(function (f, i) {
-    lista.innerHTML += '<div class="sor"><span>' + f.ido + ' – ' + f.nev + '</span>' +
+    var tisztaNev = f.nev.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    lista.innerHTML += '<div class="sor"><span>' + f.ido + ' – ' + tisztaNev + '</span>' +
       '<span class="torol" data-i="' + i + '">Törlés</span></div>';
   });
   document.querySelectorAll('.torol').forEach(function (el) {
